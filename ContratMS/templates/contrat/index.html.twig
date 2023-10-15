@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block pagePreloader %}
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block breadcrumb %}
+{% endblock %}
+{% block contactForm %}
+    <h1>Contrat index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NumeroContrat</th>
+                <th>Content</th>
+                <th>Titre</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contrat in contrats %}
+            <tr>
+                <td>{{ contrat.id }}</td>
+                <td>{{ contrat.numeroContrat }}</td>
+                <td>{{ contrat.content }}</td>
+                <td>{{ contrat.titre }}</td>
+                <td>
+                    <a href="{{ path('app_contrat_show', {'id': contrat.id}) }}">show</a>
+                    <a href="{{ path('app_contrat_edit', {'id': contrat.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_contrat_new') }}">Create new</a>
+{% endblock %}
+
+{% block contactUs %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
