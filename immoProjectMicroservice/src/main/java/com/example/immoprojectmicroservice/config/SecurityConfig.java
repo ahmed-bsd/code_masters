@@ -39,8 +39,10 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
         CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManagerBean());
         customAuthenticationFilter.setFilterProcessesUrl("/login");
         http.csrf().disable();
+        http.headers().frameOptions().disable();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
         http.authorizeRequests().antMatchers("/api/dashboard/**").hasAuthority("ADMIN");
+        http.authorizeRequests().antMatchers("/swagger-ui/**");
         http.authorizeRequests().antMatchers("/api/user/seller/**").hasAuthority("SELLER");
         http.authorizeRequests().antMatchers("/api/user/client/**").hasAuthority("CLIENT");
         http.authorizeRequests().antMatchers("/api/public/**").permitAll();
