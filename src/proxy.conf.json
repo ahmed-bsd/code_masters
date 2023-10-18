@@ -1,0 +1,7 @@
+{
+    "/dashbord": {
+      "target": "http://localhost:8081/api/dashboard",
+      "secure": false,
+      "changeOrigin": "true"
+    }
+  }

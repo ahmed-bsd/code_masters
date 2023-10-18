@@ -1,0 +1,210 @@
+
+<app-navbar-component></app-navbar-component>
+
+    
+<section class="search-section spad">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="section-title">
+                    <h4>Finacial Calculator</h4>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="change-btn">
+                    <div class="cb-item">
+                        <label for="cb-rent" class="active">
+                            Simulation
+                            <input type="radio" id="cb-rent" (click)="showSimulationForm = true; showPredictionForm = false;">
+                            
+                        </label>
+                    </div>
+                    <div class="cb-item">
+                        <label for="cb-sale">
+                            Prediction
+                            <input type="radio" id="cb-sale" (click)="showPredictionForm = true; showSimulationForm = false;">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <div *ngIf="showSimulationForm">
+        <div class="search-form-content">
+            <form class="calculator-form" #f="ngForm" >
+            <div class="col-lg-4">
+                <div class="filter-input">
+                    <p>Sale Price</p>
+                    <input type="number" id="property-price" [(ngModel)]="Propertyprice" name="Propertyprice" placeholder="$" required class="form-control"
+                        [ngClass]="{'is-invalid': formSubmitted && !Propertyprice}">
+                    <div *ngIf="formSubmitted && !Propertyprice" class="invalid-feedback">
+                        Sale Price is required.
+                    </div>
+                </div>
+                
+                <div class="filter-input">
+                    <p>Term(year)</p>
+                    <input type="number" id="loan-term" [(ngModel)]="loanTermInYears" placeholder="Year" name="loanTermInYears" required class="form-control"
+                        [ngClass]="{'is-invalid': formSubmitted && !loanTermInYears}">
+                    <div *ngIf="formSubmitted && !loanTermInYears" class="invalid-feedback">
+                        Term (year) is required.
+                    </div>
+                </div>
+                <div class="filter-input">
+                    <p>autoFinanced</p>
+                    <input type="number" id="auto-financed" [(ngModel)]="autoFinanced" name="autoFinanced" min="0" [max]="Propertyprice" pattern="[0-9]*" placeholder="$" required class="form-control"
+                        [ngClass]="{'is-invalid': formSubmitted && !autoFinanced}">
+                    <div *ngIf="formSubmitted && !autoFinanced" class="invalid-feedback">
+                        Auto Financed is required.
+                    </div>
+                    <small *ngIf=" autoFinanced > Propertyprice" class="error-message">
+                        Auto-financed value should not exceed Sale Price
+                    </small>
+                </div>
+                <br>
+                <button type="submit" (click)="calculateLoan()" [disabled]="f.invalid" class="site-btn">Calculate</button>
+                
+                
+             </div>
+            </form> 
+            
+        </div>
+
+            <div class="container"  *ngIf="top3Investments">
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h6>your monthly payment is about : </h6>
+                            <h6 style="color: rgb(48, 139, 103);"><span > {{monthlyPayment}} DTN</span></h6>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h4>the top three properties where you can invest</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="d-flex">
+                            <div class="property-item mr-4" *ngFor="let investment of top3Investments">
+                                <div class="pi-pic set-bg"   alt="Image 1">
+                                  <img  src="assets/front/img/images.jpg">
+                                  <div class="label c-red">For sale</div>
+                                </div>
+                               
+                             <div class="pi-text">
+                                <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                                <div class="pt-price">{{investment.price}} DNT</div><br>
+                                <h5><a href="#">{{investment.category}}</a></h5>
+                                <p><span class="icon_pin_alt"></span> {{investment.region}} , {{investment.city}}</p>
+                                <ul>
+                                    <li><i class="fa fa-object-group"></i>{{investment.size}} m²</li>
+                                    <li><i class="fa fa-bathtub"></i> {{investment.bathroomCount}}</li>
+                                    <li><i class="fa fa-bed"></i> {{investment.roomsCount}}</li>
+                                </ul> 
+                                <div class="pi-agent">
+                                    <div class="pa-item">
+                                        <div class="pa-info">
+                                            <h6> Monthly payment:</h6>
+                                        </div>
+                                        <div class="pa-text">
+                                            {{investment.monthlyPayment}} dinars
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </div>
+        
+
+        <div *ngIf="showPredictionForm"  class="row" >
+          <div class="col-lg-8">
+            <div class="search-form-content">
+                <form class="calculator-form">
+                  <div class="col-lg-4">
+                    <div class="filter-input">
+                        <label for="category">Category</label>
+                        <select id="category" [(ngModel)]="investisment.category" name="category" required class="form-control">
+                          <option value="">Select a category</option>
+                          <option value="Terrains et Fermes">Terrains et Fermes</option>
+                          <option value="Appartements">Appartements</option>
+                          <option value="Maisons et Villas">Maisons et Villas</option>
+                          <option value="Locations de vacances">Locations de vacances</option>
+                        </select>
+                      </div>
+                    
+                     <div class="filter-input">
+                        <label for="city">city</label>
+                        <select id="loan-term" [(ngModel)]="investisment.city" placeholder="pick a city" name="city" required class="form-control">
+                          <option value="">Select a city</option>
+                          <option value="Tunis">Tunis</option>
+                          <option value="Ariana">Ariana</option>
+                          <option value="Bizerte">Bizerte</option>
+                          <option value="La manouba">La manouba</option>
+                          <option value="Sousse">Sousse</option>
+                          <option value="La manouba">Nabeul</option>
+                        </select>
+                      </div>
+                     <div class="filter-input">
+                        <label for="region">region</label>
+                        <select id="loan-term" [(ngModel)]="investisment.region" name="region" required class="form-control">
+                          <option value="">Select a city</option>
+                          <option value="Ariana">Ariana</option>
+                          <option value="Ariana Ville">Ariana Ville</option>
+                          <option value="Agba">Agba</option>
+                          <option value="Borj Louzir">Borj Louzir</option>
+                          <option value="La Marsa">La Marsa</option>
+                        </select>
+                    </div>
+                     <div class="filter-input">
+                        <label for="type">type</label>
+                        <select id="loan-term" [(ngModel)]="investisment.type" name="type" required class="form-control">
+                          <option value="À Louer">À Louer</option>
+                          <option value="À Vendre">À Vendre</option>
+                        </select>
+                    </div>
+                     <div class="filter-input">
+                        <p>roomsCount</p>
+                        <input type="number" id="auto-financed" [(ngModel)]="investisment.roomsCount" name="roomsCount" required class="form-control" >
+                     </div><br>
+                     <button type="submit" (click)="estimatePrice(investisment)" class="site-btn">estimate</button>
+                  </div>
+                </form> 
+            </div>
+            </div>
+                <br>
+                
+               
+            
+                <div class="chooseus-features" *ngIf="maxPrice !== null && minPrice !== null && averagePrice !== null">
+                    <div class="cf-item">
+                        <div class="cf-pic">
+                        <img src="assets/front/img/chooseus/chooseus-icon-3.png" alt="" style="cursor: default;">
+                        </div>
+                        <div class="cf-text" style="color: blue;">
+                            <h4>in the case of a property with such features, you should have an amount of: </h4>
+                            <p><span> {{averagePrice}}DTN</span></p>
+                        </div>
+                    </div>
+                </div> 
+                   
+                    
+                    
+            </div></div>
+        <app-footbar-component></app-footbar-component>
+</section>
+
+
+
+
+
+
+
+<router-outlet></router-outlet>
