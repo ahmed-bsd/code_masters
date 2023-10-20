@@ -29,6 +29,11 @@ public class UserController {
 	CloudinaryService cloudinaryService;
     //http://localhost:8081/SpringMVC/swagger-ui/index.html
 
+	@RequestMapping("/hello")
+	public String sayhello(){
+		System.out.println("ahmed");
+		return "ahmed";
+	}
 	@ApiOperation(value = "Retrieve my infos")
 	@GetMapping("/me")
 	@ResponseBody
