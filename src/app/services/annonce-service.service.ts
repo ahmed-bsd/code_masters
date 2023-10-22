@@ -18,6 +18,8 @@ afficheAnnonce(): Observable<Annonce[]> {
   //méthode add 
 addAnnouncement (annonce: Annonce): Observable<Annonce> {
   return this.http.post<Annonce>("http://localhost:8081/annonce/add/annonce", annonce);}
+
+
 //affichage liste des annonces 
 getAllAnnouncement(): Observable<Annonce[]> {
   return this.http.get<Annonce[]>(this.apiUrl+"/all/annonce"); }

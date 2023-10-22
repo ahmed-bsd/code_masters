@@ -10,6 +10,10 @@ import { FootbarComponentComponent } from './footbar-component/footbar-component
 import { FormsModule } from '@angular/forms';
 import { DetailAnnonceComponent } from './detail-annonce/detail-annonce.component';
 import { SimulationComponent } from './simulation/simulation.component';
+import { FormsAnnonceComponent } from './forms-annonce/forms-annonce.component';
+import { HomeComponentComponent } from './home-component/home-component.component';
+import { FeatureSectionComponent } from './feature-section/feature-section.component';
+import { SearchSectionComponent } from './search-section/search-section.component';
 
 
 @NgModule({
@@ -18,6 +22,10 @@ import { SimulationComponent } from './simulation/simulation.component';
     NavbarComponentComponent,
     AnnonceListComponent,
     DetailAnnonceComponent,
+    FormsAnnonceComponent,
+    HomeComponentComponent,
+    FeatureSectionComponent,
+    SearchSectionComponent,
     SimulationComponent
     
   ],
