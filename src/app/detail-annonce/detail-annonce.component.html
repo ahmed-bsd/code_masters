@@ -1,0 +1,385 @@
+
+<app-navbar-component></app-navbar-component>
+<br>
+<br>
+<br>
+<!-- Property Details Section Begin -->
+<section class="property-details-section">
+    <div class="property-pic-slider owl-carousel">
+        <div class="ps-item">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12 p-0">
+                                <div class="ps-item-inner large-item set-bg" data-setbg="assets/front/img/property/slider/ps-1.jpg"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-sm-6 p-0">
+                                <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-2.jpg"></div>
+                            </div>
+                            <div class="col-sm-6 p-0">
+                                <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-2.jpg"></div>
+                            </div>
+                            <div class="col-sm-6 p-0">
+                                <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-4.jpg"></div>
+                            </div>
+                            <div class="col-sm-6 p-0">
+                                <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-5.jpg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ps-item">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12 p-0">
+                                <div class="ps-item-inner large-item set-bg" data-setbg="img/property/slider/ps-1.jpg"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-sm-6 p-0">
+                                <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-2.jpg" >  </div>
+                            </div>
+                            <div class="col-sm-6 p-0">
+                                <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-2.jpg"></div>
+                            </div>
+                            <div class="col-sm-6 p-0">
+                                <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-4.jpg"></div>
+                            </div>
+                            <div class="col-sm-6 p-0">
+                                <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-5.jpg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="pd-text">
+                    <img src="assets/front/img/property/slider/ps-1.jpg" alt="">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-6">
+                             <div class="pd-title">
+                                <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                                <div class="label">For rent</div>
+                                <div class="pt-price"> {{a.price}} DT<span></span></div>
+                                <h3>{{a.name}}</h3>
+                                <p><span class="icon_pin_alt"></span> {{a.localisation}}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="pd-social">
+                                <a href="#"><i class="fa fa-mail-forward"></i></a>
+                                <a href="#"><i class="fa fa-send"></i></a>
+                                <a href="#"><i class="fa fa-cloud-download"></i></a>
+
+                              <!--  <a  (click)="like(a)" ><i class="fa fa-heart"></i></a>
+                                <a  (click)="dislike(a)" ><i class="fa fa-thumbs-down"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pd-board">
+                        <div class="tab-board">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Overview</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Description</a>
+                                </li>
+                                
+                            </ul><!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                    <div class="tab-details">
+                                        <ul class="left-table">
+                                            <li>
+                                                <span class="type-name">Announcement Name</span>
+                                                <span class="type-value">{{a.name}}</span>
+                                            </li>
+                                            <li>
+                                                <span class="type-name">Announcement Type</span>
+                                                <span class="type-value">{{a.categorieAnnouncement}}</span>
+                                            </li>
+                                            <li>
+                                                <span class="type-name">Country</span>
+                                                <span class="type-value">{{a.region}}</span>
+                                            </li>
+                                            <li>
+                                                <span class="type-name">Price</span>
+                                                <span class="type-value">{{a.price}} DT</span>
+                                            </li>
+                                            <li>
+                                                <span class="type-name">likes </span>
+                                                <span class="type-value">{{a.likes}}</span>
+                                            </li>
+                                            <li>
+                                                <span class="type-name"> dislikes</span>
+                                                <span class="type-value">{{a.dislikes}}</span>
+                                            </li>
+                                            
+                                        </ul>
+                                        <ul class="right-table">
+                                            <li>
+                                                <span class="type-name">Score</span>
+                                                <span class="type-value">{{a.score}}</span>
+                                            </li>
+                                            <li>
+                                                <span class="type-name">Name of the poster</span>
+                                                <span class="type-value"></span>
+                                            </li>
+                                            <li>
+                                                <span class="type-name">Evaluation</span>
+                                                <span class="type-value">{{a.numEvaluations}}</span>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                    <div class="tab-desc">
+                                        <p>{{a.description}}</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pd-widget"   >
+                        <h4>Liste des Visites de cette annonces </h4>
+                        <div class="pd-agent" >
+                            <div class="agent-pic">
+                                <img src="assets/front/img/property/details/visite.jpg" alt="">
+                                
+                            </div>
+                            <div >
+                            <div class="agent-text"  >
+                               
+                                <div class="at-title" >
+                                    <h6> LES DATES DES VISITES :</h6>
+                                   <!--<div >
+                                        <label  for="date">Choisir une date :</label>
+                                    </div>--> 
+                                     <input type="date" id="date" name="date"  class="primary-btn"  >
+                                   <!--  <h1>  <span *ngFor="let p of visites"> {{ p.visitDate | date: 'EEEE, dd/MM/yyyy' }}</span> </h1> -->
+                                   <!--<a href="#" class="primary-btn" >Rendez-vous</a>-->    
+                                </div>
+                                <p>Visite uniquement sur  Rendez-vous pour votre visite: 
+                                    <br> prendre un rendez-vous par télèphone 
+                                    <br> ou bien selon notre plateforme </p>
+                                <div class="at-option">
+                                    <div class="at-number">+21671739436</div>
+                                    <div class="at-social">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pd-widget">
+                        <h4>Floor plans</h4>
+                        <img src="assets/front/img/property/details/floor-plan.jpg" alt="">
+                    </div>
+                    <div class="pd-widget">
+                        <h4>Floor plans</h4>
+                        <div class="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d735515.5813275519!2d-80.41163541934742!3d43.93644386501528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882a55bbf3de23d7%3A0x3ada5af229b47375!2sMono%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sbd!4v1583262687289!5m2!1sen!2sbd" height="350" style="border:0;" allowfullscreen=""></iframe>
+                        </div>
+                        <div class="map-location">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="ml-item">
+                                        <div class="ml-single-item">
+                                            <h6>Hospital <span>( <i class="fa fa-location-arrow"></i> 5 km )</span></h6>
+                                            <p>Portland Ave Rochester, NY 14621</p>
+                                        </div>
+                                        <div class="ml-single-item">
+                                            <h6>Schools <span>( <i class="fa fa-location-arrow"></i> 8 km )</span></h6>
+                                            <p>Cragin Elementary School</p>
+                                        </div>
+                                        <div class="ml-single-item">
+                                            <h6>Store <span>( <i class="fa fa-location-arrow"></i> 2 km )</span></h6>
+                                            <p>Exceptional Shoes & Clothing</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="ml-item">
+                                        <div class="ml-single-item">
+                                            <h6>Laundry <span>( <i class="fa fa-location-arrow"></i> 3 km )</span></h6>
+                                            <p>Besst at laundry</p>
+                                        </div>
+                                        <div class="ml-single-item">
+                                            <h6>Health <span>( <i class="fa fa-location-arrow"></i> 5 km )</span></h6>
+                                            <p>Boomerang Barber & Beauty</p>
+                                        </div>
+                                        <div class="ml-single-item">
+                                            <h6>Health <span>( <i class="fa fa-location-arrow"></i> 5 km )</span></h6>
+                                            <p>Boomerang Barber & Beauty</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div class="pd-widget">
+                        <h4>02 reviews</h4>
+                        <div class="pd-review">
+                            <div class="pr-item">
+                                <div class="pr-avatar">
+                                    <div class="pr-pic">
+                                        <img src="assets/front/img/property/details/review/review-1.jpg" alt="">
+                                    </div>
+                                    <div class="pr-text">
+                                        <h6>Brandon Kelley</h6>
+                                        <span>15 Aug 2017</span>
+                                        <div class="pr-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
+                            </div>
+                            <div class="pr-item">
+                                <div class="pr-avatar">
+                                    <div class="pr-pic">
+                                        <img src="assets/front/img/property/details/review/review-2.jpg" alt="">
+                                    </div>
+                                    <div class="pr-text">
+                                        <h6>Matthew Nelson</h6>
+                                        <span>15 Aug 2017</span>
+                                        <div class="pr-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pd-widget">
+                        <h4>YOur Rating</h4>
+                        <form action="#" class="review-form">
+                            <div class="group-input">
+                                <input type="text" placeholder="Name">
+                                <input type="text" placeholder="Email">
+                                <input type="text" placeholder="Website">
+                            </div>
+                            <textarea placeholder="Messages"></textarea>
+                            <div class="rating">
+                                <span>Your Rating:</span>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <button type="submit" class="site-btn">send messages</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="property-sidebar">
+                    <div class="single-sidebar">
+                        <div class="section-title sidebar-title">
+                            <h5>Top agent</h5>
+                        </div>
+                        <div class="top-agent">
+                            <div class="ta-item">
+                                <div class="ta-pic set-bg" data-setbg="assets/front/img/property/details/sidebar/ta-1.jpg"></div>
+                                <div class="ta-text">
+                                    <h6><a href="#">Ashton Kutcher</a></h6>
+                                    <span>Team Leader</span>
+                                    <div class="ta-num">123-455-688</div>
+                                </div>
+                            </div>
+                            <div class="ta-item">
+                                <div class="ta-pic set-bg" data-setbg="assets/front/img/property/details/sidebar/ta-2.jpg"></div>
+                                <div class="ta-text">
+                                    <h6><a href="#">Ashton Kutcher</a></h6>
+                                    <span>Team Leader</span>
+                                    <div class="ta-num">123-455-688</div>
+                                </div>
+                            </div>
+                            <div class="ta-item">
+                                <div class="ta-pic set-bg" data-setbg="assets/front/img/property/details/sidebar/ta-3.jpg"></div>
+                                <div class="ta-text">
+                                    <h6><a href="#">Ashton Kutcher</a></h6>
+                                    <span>Team Leader</span>
+                                    <div class="ta-num">123-455-688</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     
+                    <div class="single-sidebar">
+                        <div class="section-title sidebar-title">
+                            <h5>mortgage calculator</h5>
+                        </div>
+                        <form action="#" class="calculator-form">
+                            <div class="filter-input">
+                                <p>Sale Price</p>
+                                <input type="text" placeholder="$">
+                            </div>
+                            <div class="filter-input">
+                                <p>Precent Down</p>
+                                <input type="text" placeholder="$">
+                            </div>
+                            <div class="filter-input">
+                                <p>Term(year)</p>
+                                <input type="text" placeholder="Year">
+                            </div>
+                            <div class="filter-input">
+                                <p>Interest Rate in %</p>
+                                <input type="text" placeholder="%">
+                            </div>
+                            <button type="submit" class="site-btn">Calculate</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Property Details Section End -->
+
+ 
+
+
+
+
+
+
+
+<router-outlet></router-outlet>
